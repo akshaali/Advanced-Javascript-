@@ -1,9 +1,4 @@
-import {
-  promise1,
-  promise2,
-  promise3,
-  promise4,
-} from "../Promise.staticfunction.js";
+import { promise1, promise2, promise3, promise4 } from "../PromiseHelper.js";
 
 Promise.myAllSettled = function (promises) {
   return new Promise((resolve, reject) => {
@@ -22,7 +17,7 @@ Promise.myAllSettled = function (promises) {
             "Promise at index",
             index,
             "fulfilled with value:",
-            value
+            value,
           );
           results[index] = { status: "fulfilled", value: value };
         })
@@ -31,7 +26,7 @@ Promise.myAllSettled = function (promises) {
             "Promise at index",
             index,
             "rejected with reason:",
-            reason
+            reason,
           );
           results[index] = { status: "rejected", reason: reason };
         })

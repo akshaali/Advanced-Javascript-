@@ -1,9 +1,4 @@
-import {
-  promise1,
-  promise2,
-  promise3,
-  promise4,
-} from "../Promise.staticfunction.js";
+import { promise1, promise2, promise3, promise4 } from "../PromiseHelper.js";
 
 Promise.myAny = function (promises) {
   return new Promise((resolve, reject) => {
@@ -22,7 +17,7 @@ Promise.myAny = function (promises) {
             "Promise at index",
             index,
             "fulfilled with value:",
-            value
+            value,
           );
           resolve(value); // Resolve as soon as one promise fulfills
         })
@@ -31,7 +26,7 @@ Promise.myAny = function (promises) {
             "Promise at index",
             index,
             "rejected with reason:",
-            reason
+            reason,
           );
           errors[index] = reason;
           rejectedPromises += 1;
@@ -55,4 +50,3 @@ Promise.myAny([promise1, promise2, promise3, promise4])
   .catch((error) => {
     console.error("Promise.myAny rejected with error:", error);
   });
-

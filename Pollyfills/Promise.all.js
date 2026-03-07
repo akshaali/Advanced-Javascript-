@@ -1,9 +1,4 @@
-import {
-  promise1,
-  promise2,
-  promise3,
-  promise4,
-} from "../Promise.staticfunction.js";
+import { promise1, promise2, promise3, promise4 } from "../PromiseHelper.js";
 
 const PromiseAllPolllyfill = (promises) => {
   return new Promise((resolve, reject) => {
