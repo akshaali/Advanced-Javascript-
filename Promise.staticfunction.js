@@ -15,35 +15,15 @@ Promises static functions are methods that are called on the Promise constructor
 
 */
 
-export const promise1 = new Promise((resolve, reject) => {
-  setTimeout(() => {
-    console.log("promise1 settles")
-    reject("promise1");
-  }, 1000);
-});
+import {
+  promise1,
+  promise2,
+  promise3,
+  promise4,
+  promise5,
+} from "./PromiseHelper.js";
 
-export const promise2 = new Promise((resolve, reject) => {
-  setTimeout(() => {
-    console.log("promise2 settles")
-    reject("promise2");
-  }, 2000);
-});
-
-export const promise3 = new Promise((resolve, reject) => {
-  setTimeout(() => {
-    console.log("promise3 settles")
-    reject("promise3");
-  }, 3000);
-});
-
-export const promise4 = new Promise((resolve, reject) => {
-  setTimeout(() => {
-    console.log("promise4 settles")
-    reject("promise4");
-  }, 4000);
-});
-
-Promise.all([promise1, promise2, promise3, promise4])
+Promise.all([promise1(), promise2(), promise3(), promise4(), promise5()])
   .then((res) => {
     console.log("promise.all response", res);
   })
@@ -51,7 +31,7 @@ Promise.all([promise1, promise2, promise3, promise4])
     console.log("promise.all catch", err);
   });
 
-Promise.allSettled([promise1, promise2, promise3, promise4])
+Promise.allSettled([promise1(), promise2(), promise3(), promise4(), promise5()])
   .then((res) => {
     console.log("promise.allSettled response", res);
   })
@@ -59,7 +39,7 @@ Promise.allSettled([promise1, promise2, promise3, promise4])
     console.log("promise.allSettled catch", err);
   });
 
-Promise.any([promise1, promise2, promise3, promise4])
+Promise.any([promise1(), promise2(), promise3(), promise4(), promise5()])
   .then((res) => {
     console.log("promise.any response", res);
   })
@@ -67,7 +47,7 @@ Promise.any([promise1, promise2, promise3, promise4])
     console.log("promise.any catch", err);
   });
 
-  Promise.race([promise1, promise2, promise3, promise4])
+Promise.race([promise1(), promise2(), promise3(), promise4(), promise5()])
   .then((res) => {
     console.log("promise.race response", res);
   })

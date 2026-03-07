@@ -11,7 +11,8 @@ const PromiseAllPolllyfill = (promises) => {
 
     promises.forEach((promise, index) => {
       console.log("Processing promise at index:", index);
-      Promise.resolve(promise)
+      const resolvedPromise = typeof promise === 'function' ? promise() : promise;
+      Promise.resolve(resolvedPromise)
         .then((value) => {
           console.log("Promise at index", index, "resolved with value:", value);
           results[index] = value;
