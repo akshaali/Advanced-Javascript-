@@ -1,5 +1,4 @@
 function currying(a){
-    console.log("a", a)
     return function sum(b){
         if (b === undefined) return a;
         a +=b;
